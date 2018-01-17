@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "26.0.1"
+    defaultConfig {
+        applicationId "demo.sharesdk.cn.myadou"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    //腾讯互动直播
+    compile 'com.tencent.ilivesdk:ilivesdk:1.7.2'
+    compile 'com.tencent.livesdk:livesdk:1.1.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'jp.wasabeef:glide-transformations:3.0.1'
+    //添加okhttp的依赖
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    //json数据解析的工具
+    compile 'com.google.code.gson:gson:2.2.4'
+    //打印log的框架
+    compile 'com.orhanobut:logger:2.1.1'
+    //7牛图片存储框架 （7牛需要添加okhttp辅助）
+    compile 'com.qiniu:qiniu-android-sdk:7.3.10'
+    compile 'com.loopj.android:android-async-http:1.4.9'
+}
